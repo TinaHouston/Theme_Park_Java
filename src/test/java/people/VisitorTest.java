@@ -1,13 +1,17 @@
 package people;
 
+import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
+import stalls.TobaccoStall;
 
 import static org.junit.Assert.assertEquals;
 
 public class VisitorTest {
 
     Visitor visitor;
+    RollerCoaster rollerCoaster;
+    TobaccoStall tobaccoStall;
 
     @Before
     public void before(){
@@ -27,5 +31,16 @@ public class VisitorTest {
     @Test
     public void hasMoney() {
         assertEquals(40.0, visitor.getMoney(), 0.1);
+    }
+
+    @Test
+    public void hasVisitedAttractions(){
+        assertEquals(0, visitor.visitedAttractionListSize());
+    }
+
+    @Test
+    public void canVisitAttraction(){
+        visitor.addAttractionOrStall(tobaccoStall);
+        assertEquals(1, visitor.visitedAttractionListSize());
     }
 }
