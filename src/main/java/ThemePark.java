@@ -4,15 +4,18 @@ import behaviours.IReviewed;
 import people.Visitor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ThemePark implements AttractionsAndStalls {
 
     private String name;
     private ArrayList<AttractionsAndStalls> attractionsAndStalls;
+    private HashMap<String, Integer> reviews;
 
     public ThemePark(String name) {
         this.name = name;
         this.attractionsAndStalls = new ArrayList<AttractionsAndStalls>();
+        this.reviews = new HashMap<String, Integer>();
     }
 
     public ArrayList<AttractionsAndStalls> getAttractionsAndStalls() {
